@@ -1,0 +1,10 @@
+obj
+packages
+bin
+*.csproj.user
+.vs
+.idea/
+*.log
+.DS_Store
+/log_*.md
+/Shared/Source/Resource/*.csv

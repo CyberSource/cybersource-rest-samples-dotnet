@@ -1,0 +1,18 @@
+<Project>
+
+  <PropertyGroup>
+    <SamplesRoot>$(MSBuildThisFileDirectory)</SamplesRoot>
+    <SharedSampleConfigDir>$(SamplesRoot)Shared\LogConfiguration\</SharedSampleConfigDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="$(SharedSampleConfigDir)NLog.config" Link="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SharedSampleConfigDir)NLog.xsd" Link="NLog.xsd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
