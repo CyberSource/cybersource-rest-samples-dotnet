@@ -2,17 +2,15 @@
 
   <PropertyGroup>
     <SamplesRoot>$(MSBuildThisFileDirectory)</SamplesRoot>
-    <SharedSampleConfigDir>$(SamplesRoot)Shared\LogConfiguration\</SharedSampleConfigDir>
+    <SharedSampleConfigDir>$(SamplesRoot)Shared\Source\</SharedSampleConfigDir>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Include="$(SharedSampleConfigDir)NLog.config" Link="NLog.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-
-    <None Include="$(SharedSampleConfigDir)NLog.xsd" Link="NLog.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+  <!-- Use the combined shared App.config so both console logging (Logging:Console:*) and HTTP
+       client (HttpClient:*) settings can be injected (via IOptions) into ConsoleLoggerFactory,
+       SampleHttpClient, and SampleHttpClientFactory. MSBuild transforms it into <app>.exe.config
+       in the build output, which ConfigurationManager.AppSettings reads at runtime. -->
+  <PropertyGroup>
+    <AppConfig>$(SharedSampleConfigDir)App.config</AppConfig>
+  </PropertyGroup>
 
 </Project>

@@ -10,6 +10,13 @@
 
   <ItemGroup>
     <Compile Include="../Shared/Source/**/*.cs" LinkBase="Source" />
+    <Compile Include="../Shared/LogConfiguration/*.cs" LinkBase="LogConfiguration" />
+    <Compile Include="../Shared/HttpClientConfiguration/*.cs" LinkBase="HttpClientConfiguration" />
+    <Compile Include="../Shared/SerializationConfiguration/*.cs" LinkBase="SerializationConfiguration" />
+    <None Include="../Shared/Source/Resource/*.*" LinkBase="Source/Resource" />
+    <None Include="../Shared/Source/*.config" LinkBase="Source">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <!-- On the .NET Framework legs, System.Text.Json pulls in System.Buffers/System.Memory/etc.
@@ -28,8 +35,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CyberSource.Authentication" Version="1.0.0" />
-    <PackageReference Include="CyberSource.Rest.Client" Version="1.0.0" />
+    <PackageReference Include="CyberSource.Authentication" Version="1.0.1" />
+    <PackageReference Include="CyberSource.Rest.Client" Version="1.0.1" />
     <PackageReference Include="jose-jwt" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.9" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="10.0.9" />
   </ItemGroup>
-</Project>
+
+  <!-- Use the in-box System.Configuration assembly for ConfigurationManager. The NuGet package
+       System.Configuration.ConfigurationManager ships the same type and collides with this
+       framework assembly on .NET Framework, producing a CS0433 ambiguity. -->
+  <ItemGroup>
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  </Project>

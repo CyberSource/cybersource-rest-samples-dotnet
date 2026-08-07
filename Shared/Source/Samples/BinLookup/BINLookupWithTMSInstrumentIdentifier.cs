@@ -16,7 +16,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.BinLookup
 			var filename = filePath[filePath.Length - 1];
 			Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
 		}
-		public static async System.Threading.Tasks.Task<InlineResponse2013> RunAsync()
+		public static async System.Threading.Tasks.Task<InlineResponse2016> RunAsync()
 		{
 			string paymentInformationInstrumentIdentifierId = "7010000000016241111";
 			Ptsv2paymentsPaymentInformationInstrumentIdentifier paymentInformationInstrumentIdentifier = new Ptsv2paymentsPaymentInformationInstrumentIdentifier(
@@ -37,7 +37,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.BinLookup
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new BinLookupApi(clientConfig);
-				InlineResponse2013 result = await apiInstance.GetAccountInfoAsync(requestObj);
+				InlineResponse2016 result = await apiInstance.GetAccountInfoAsync(requestObj);
 				Console.WriteLine(result);
 				WriteLogAudit(apiInstance.GetStatusCode());
 				return result;
