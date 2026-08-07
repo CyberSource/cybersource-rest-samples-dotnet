@@ -18,7 +18,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.DependencyInjection
     /// <para>See <c>Samples.JwtSharedSecretAuth.MLEPaymentWithJwtSharedSecret</c> and
     /// <see cref="JwtSharedSecretConfiguration.GetMerchantDetailsWithMLE"/> for an example.</para>
     /// </summary>
-    public class AcpApiExample
+    public class AcpApiExampleWithSerializationDI
     {
         public static void WriteLogAudit(int status)
         {
