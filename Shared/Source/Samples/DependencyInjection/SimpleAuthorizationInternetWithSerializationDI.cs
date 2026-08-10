@@ -12,7 +12,7 @@ using Microsoft.Extensions.Options;
 
 namespace Cybersource_rest_samples_dotnet.Samples.DependencyInjection
 {
-    public class SimpleAuthorizationInternet
+    public class SimpleAuthorizationInternetWithSerializationDI
     {
         public static void WriteLogAudit(int status)
         {
