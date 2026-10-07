@@ -199,7 +199,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MLEFeature
                 var configDictionary = new ConfigurationWithMLE().GetMerchantDetailsWithRequestAndResponseMLE2();
                 var mapToControlMLE = new ConfigurationWithMLE().GetMapToControlMLEForRequestAndResponse();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary, mapToControlMLEonAPI : mapToControlMLE);
-                var apiInstance = new AgentCapabilitiesApi(clientConfig);
+                var apiInstance = new EnrollmentApi(clientConfig);
                 AgenticCardEnrollmentResponse200 result = await apiInstance.EnrollCardAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());

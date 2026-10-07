@@ -20,7 +20,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
         }
 
 
-        public static async System.Threading.Tasks.Task<InlineResponse2017> RunAsync()
+        public static async System.Threading.Tasks.Task<InlineResponse2016> RunAsync()
         {
 
 
@@ -234,7 +234,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new MerchantBoardingApi(clientConfig);
-                InlineResponse2017 result = await apiInstance.PostRegistrationAsync(reqObj);
+                InlineResponse2016 result = await apiInstance.PostRegistrationAsync(reqObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;
