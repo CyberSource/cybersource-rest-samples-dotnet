@@ -16,7 +16,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.BinLookup
 			var filename = filePath[filePath.Length - 1];
 			Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
 		}
-		public static async System.Threading.Tasks.Task<InlineResponse2016> RunAsync()
+		public static async System.Threading.Tasks.Task<InlineResponse2015> RunAsync()
 		{
 			string tokenInformationJti = "1E0WC1GO87JG1BDP0CQ8SCR1TTK86U9N98H3WH8IFM9MVEWTIYFI62F4941E7A92";
 			Binv1binlookupTokenInformation tokenInformation = new Binv1binlookupTokenInformation(
@@ -33,7 +33,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.BinLookup
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new BinLookupApi(clientConfig);
-				InlineResponse2016 result = await apiInstance.GetAccountInfoAsync(requestObj);
+				InlineResponse2015 result = await apiInstance.GetAccountInfoAsync(requestObj);
 				Console.WriteLine(result);
 				WriteLogAudit(apiInstance.GetStatusCode());
 				return result;

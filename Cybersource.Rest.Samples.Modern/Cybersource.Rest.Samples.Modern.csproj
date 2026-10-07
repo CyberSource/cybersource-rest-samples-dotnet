@@ -33,7 +33,7 @@
 
   <ItemGroup>
     <PackageReference Include="CyberSource.Authentication" Version="1.0.1" />
-    <PackageReference Include="CyberSource.Rest.Client" Version="1.0.1" />
+    <PackageReference Include="CyberSource.Rest.Client" Version="1.0.2" />
     <PackageReference Include="jose-jwt" Version="4.1.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.9" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="10.0.9" />

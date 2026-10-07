@@ -200,7 +200,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.DependencyInjection
                 using SampleHttpClient sampleHttpClient = SampleHttpClient.Create();
                 var configDictionary = new ConfigurationWithMLE().GetMerchantDetailsWithRequestAndResponseMLE1();
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary, httpClient: sampleHttpClient.Client);
-                var apiInstance = new AgentCapabilitiesApi(clientConfig);
+                var apiInstance = new EnrollmentApi(clientConfig);
                 AgenticCardEnrollmentResponse200 result = await apiInstance.EnrollCardAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());

@@ -219,7 +219,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.DependencyInjection
 
                 Console.WriteLine(requestObj.ToJson());
 
-                var apiInstance = new AgentCapabilitiesApi(clientConfig);
+                var apiInstance = new EnrollmentApi(clientConfig);
                 AgenticCardEnrollmentResponse200 result = await apiInstance.EnrollCardAsync(requestObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
