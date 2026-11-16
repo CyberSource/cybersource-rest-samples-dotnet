@@ -9,7 +9,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.AccountUpdater
 {
 	public class AmexRegistrationCustomerTokenBatch
 	{
-		public static async System.Threading.Tasks.Task<InlineResponse202> RunAsync()
+		public static async System.Threading.Tasks.Task<BatchCreateResponse> RunAsync()
 		{
 			string type = "amexRegistration";
 
@@ -30,7 +30,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.AccountUpdater
 
 			string merchantReference = "TC50171_3";
 			string notificationEmail = "test@cybs.com";
-			var requestObj = new Body(
+			var requestObj = new PostBatchRequest(
 				Type: type,
 				Included: included,
 				MerchantReference: merchantReference,
@@ -43,7 +43,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.AccountUpdater
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new BatchesApi(clientConfig);
-				InlineResponse202 result = await apiInstance.PostBatchAsync(requestObj);
+				BatchCreateResponse result = await apiInstance.PostBatchAsync(requestObj);
 				Console.WriteLine(result);
 				return result;
 			}

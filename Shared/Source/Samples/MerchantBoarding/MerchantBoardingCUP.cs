@@ -21,7 +21,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static async System.Threading.Tasks.Task<InlineResponse2016> RunAsync()
+        public static async System.Threading.Tasks.Task<BoardingRegistrationCreateResponse> RunAsync()
         {
 
             PostRegistrationBody reqObj = new PostRegistrationBody();
@@ -76,9 +76,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
                 Enabled = true
             };
 
-            Dictionary<string, PaymentsProductsCardProcessingSubscriptionInformationFeatures> features = new Dictionary<string, PaymentsProductsCardProcessingSubscriptionInformationFeatures>();
+            Dictionary<string, CardProessingFeatureSubscriptionItem> features = new Dictionary<string, CardProessingFeatureSubscriptionItem>();
 
-            PaymentsProductsCardProcessingSubscriptionInformationFeatures obj1 = new PaymentsProductsCardProcessingSubscriptionInformationFeatures
+            CardProessingFeatureSubscriptionItem obj1 = new CardProessingFeatureSubscriptionItem
             {
                 Enabled = true
             };
@@ -108,9 +108,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
 
             obj2.Acquirer = acquirer;
 
-            Dictionary<string, CardProcessingConfigCommonCurrencies1> currencies = new Dictionary<string, CardProcessingConfigCommonCurrencies1>();
+            Dictionary<string, CurrencyUpdatedConfiguration> currencies = new Dictionary<string, CurrencyUpdatedConfiguration>();
 
-            CardProcessingConfigCommonCurrencies1 obj3 = new CardProcessingConfigCommonCurrencies1
+            CurrencyUpdatedConfiguration obj3 = new CurrencyUpdatedConfiguration
             {
                 Enabled = true,
                 EnabledCardPresent = false,
@@ -223,7 +223,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new MerchantBoardingApi(clientConfig);
-                InlineResponse2016 result = await apiInstance.PostRegistrationAsync(reqObj);
+                BoardingRegistrationCreateResponse result = await apiInstance.PostRegistrationAsync(reqObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

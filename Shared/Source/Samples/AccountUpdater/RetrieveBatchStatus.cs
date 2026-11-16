@@ -19,7 +19,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.AccountUpdater
 				var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
 				var apiInstance = new BatchesApi(clientConfig);
-				InlineResponse20013 result = await apiInstance.GetBatchStatusAsync(batchId);
+				BatchStatusResponse result = await apiInstance.GetBatchStatusAsync(batchId);
 				Console.WriteLine(result);
 			}
 			catch (Exception e)

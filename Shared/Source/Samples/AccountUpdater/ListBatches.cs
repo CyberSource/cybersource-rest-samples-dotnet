@@ -19,7 +19,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.AccountUpdater
 				var apiInstance = new BatchesApi(clientConfig);
 				string fromDate = "20230101T123000Z";
 				string toDate = "20230410T123000Z";
-				InlineResponse20012 result = await apiInstance.GetBatchesListAsync(0, 10, fromDate, toDate);
+				BatchesListResponse result = await apiInstance.GetBatchesListAsync(0, 10, fromDate, toDate);
 				Console.WriteLine(result);
 			}
 			catch (Exception e)

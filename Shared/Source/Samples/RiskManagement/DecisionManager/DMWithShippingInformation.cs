@@ -53,7 +53,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
             string orderInformationShipToLastName = "Smith";
             string orderInformationShipToPhoneNumber = "7606160717";
             string orderInformationShipToPostalCode = "560056";
-            Riskv1decisionsOrderInformationShipTo orderInformationShipTo = new Riskv1decisionsOrderInformationShipTo(
+            Riskv1decisionsBundledOrderInformationShipTo orderInformationShipTo = new Riskv1decisionsBundledOrderInformationShipTo(
                 Address1: orderInformationShipToAddress1,
                 Address2: orderInformationShipToAddress2,
                 AdministrativeArea: orderInformationShipToAdministrativeArea,

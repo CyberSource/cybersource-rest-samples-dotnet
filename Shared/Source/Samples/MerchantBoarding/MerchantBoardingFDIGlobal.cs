@@ -21,7 +21,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static async System.Threading.Tasks.Task<InlineResponse2016> RunAsync()
+        public static async System.Threading.Tasks.Task<BoardingRegistrationCreateResponse> RunAsync()
         {
 
             PostRegistrationBody reqObj = new PostRegistrationBody();
@@ -75,10 +75,10 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             Enabled = true
             };
 
-            var features = new Dictionary<string, PaymentsProductsCardProcessingSubscriptionInformationFeatures>
+            var features = new Dictionary<string, CardProessingFeatureSubscriptionItem>
             {
-            { "cardNotPresent", new PaymentsProductsCardProcessingSubscriptionInformationFeatures { Enabled = true } },
-            { "cardPresent", new PaymentsProductsCardProcessingSubscriptionInformationFeatures { Enabled = true } }
+            { "cardNotPresent", new CardProessingFeatureSubscriptionItem { Enabled = true } },
+            { "cardPresent", new CardProessingFeatureSubscriptionItem { Enabled = true } }
             };
 
             subscriptionInformation.Features = features;
@@ -102,12 +102,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             Acquirer = new CardProcessingConfigCommonAcquirer()
             };
 
-            var currencies = new Dictionary<string, CardProcessingConfigCommonCurrencies1>
+            var currencies = new Dictionary<string, CurrencyUpdatedConfiguration>
             {
-            { "CHF", new CardProcessingConfigCommonCurrencies1 { Enabled = true, EnabledCardPresent = false, EnabledCardNotPresent = true, MerchantId = "123456789mer", TerminalId = "12345ter", ServiceEnablementNumber = "" } },
-            { "HRK", new CardProcessingConfigCommonCurrencies1 { Enabled = true, EnabledCardPresent = false, EnabledCardNotPresent = true, MerchantId = "123456789mer", TerminalId = "12345ter", ServiceEnablementNumber = "" } },
-            { "ERN", new CardProcessingConfigCommonCurrencies1 { Enabled = true, EnabledCardPresent = false, EnabledCardNotPresent = true, MerchantId = "123456789mer", TerminalId = "12345ter", ServiceEnablementNumber = "" } },
-            { "USD", new CardProcessingConfigCommonCurrencies1 { Enabled = true, EnabledCardPresent = false, EnabledCardNotPresent = true, MerchantId = "123456789mer", TerminalId = "12345ter", ServiceEnablementNumber = "" } }
+            { "CHF", new CurrencyUpdatedConfiguration { Enabled = true, EnabledCardPresent = false, EnabledCardNotPresent = true, MerchantId = "123456789mer", TerminalId = "12345ter", ServiceEnablementNumber = "" } },
+            { "HRK", new CurrencyUpdatedConfiguration { Enabled = true, EnabledCardPresent = false, EnabledCardNotPresent = true, MerchantId = "123456789mer", TerminalId = "12345ter", ServiceEnablementNumber = "" } },
+            { "ERN", new CurrencyUpdatedConfiguration { Enabled = true, EnabledCardPresent = false, EnabledCardNotPresent = true, MerchantId = "123456789mer", TerminalId = "12345ter", ServiceEnablementNumber = "" } },
+            { "USD", new CurrencyUpdatedConfiguration { Enabled = true, EnabledCardPresent = false, EnabledCardNotPresent = true, MerchantId = "123456789mer", TerminalId = "12345ter", ServiceEnablementNumber = "" } }
             };
 
             obj5.Currencies = currencies;
@@ -123,9 +123,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             { "CUP", new CardProcessingConfigCommonPaymentTypes { Enabled = true } }
             };
 
-            var currencies2 = new Dictionary<string, CardProcessingConfigCommonCurrencies>
+            var currencies2 = new Dictionary<string, CurrencyConfiguration>
             {
-            { "USD", new CardProcessingConfigCommonCurrencies { Enabled = true, TerminalId = "pint123", MerchantId = "pinm123", ServiceEnablementNumber = null } }
+            { "USD", new CurrencyConfiguration { Enabled = true, TerminalId = "pint123", MerchantId = "pinm123", ServiceEnablementNumber = null } }
             };
 
             paymentTypes.Add("PIN_DEBIT", new CardProcessingConfigCommonPaymentTypes { Enabled = true, Currencies = currencies2 });
@@ -182,7 +182,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new MerchantBoardingApi(clientConfig);
-                InlineResponse2016 result = await apiInstance.PostRegistrationAsync(reqObj);
+                BoardingRegistrationCreateResponse result = await apiInstance.PostRegistrationAsync(reqObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

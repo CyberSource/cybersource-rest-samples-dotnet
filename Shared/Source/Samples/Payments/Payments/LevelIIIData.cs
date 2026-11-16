@@ -83,14 +83,14 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
            );
 
 
-            List<Ptsv2paymentsOrderInformationLineItems> orderInformationLineItems = new List<Ptsv2paymentsOrderInformationLineItems>();
+            List<Ptsv2paymentsOrderInformationLineItemsExtended> orderInformationLineItems = new List<Ptsv2paymentsOrderInformationLineItemsExtended>();
             string orderInformationLineItemsProductCode1 = "default";
             int orderInformationLineItemsQuantity1 = 10;
             string orderInformationLineItemsUnitPrice1 = "10.00";
             string orderInformationLineItemsTotalAmount1 = "100";
             bool orderInformationLineItemsAmountIncludesTax1 = false;
             bool orderInformationLineItemsDiscountApplied1 = false;
-            orderInformationLineItems.Add(new Ptsv2paymentsOrderInformationLineItems(
+            orderInformationLineItems.Add(new Ptsv2paymentsOrderInformationLineItemsExtended(
                 ProductCode: orderInformationLineItemsProductCode1,
                 Quantity: orderInformationLineItemsQuantity1,
                 UnitPrice: orderInformationLineItemsUnitPrice1,

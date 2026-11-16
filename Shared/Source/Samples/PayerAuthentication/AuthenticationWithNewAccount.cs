@@ -80,7 +80,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
            );
 
             string riskInformationBuyerHistoryCustomerAccountCreationHistory = "NEW_ACCOUNT";
-            Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount riskInformationBuyerHistoryCustomerAccount = new Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount(
+            RiskInformationBuyerHistoryCustomerAccount riskInformationBuyerHistoryCustomerAccount = new RiskInformationBuyerHistoryCustomerAccount(
                 CreationHistory: riskInformationBuyerHistoryCustomerAccountCreationHistory
            );
 
@@ -89,7 +89,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.PayerAuthentication
                 FirstUseOfShippingAddress: riskInformationBuyerHistoryAccountHistoryFirstUseOfShippingAddress
            );
 
-            Ptsv2paymentsRiskInformationBuyerHistory riskInformationBuyerHistory = new Ptsv2paymentsRiskInformationBuyerHistory(
+            Riskv1decisionsRiskInformationBuyerHistory riskInformationBuyerHistory = new Riskv1decisionsRiskInformationBuyerHistory(
                 CustomerAccount: riskInformationBuyerHistoryCustomerAccount,
                 AccountHistory: riskInformationBuyerHistoryAccountHistory
            );
