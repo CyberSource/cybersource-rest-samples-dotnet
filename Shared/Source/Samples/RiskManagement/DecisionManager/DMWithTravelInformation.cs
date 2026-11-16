@@ -74,17 +74,17 @@ namespace Cybersource_rest_samples_dotnet.Samples.RiskManagement
             string travelInformationDepartureTime = "2011-03-20 11:30pm GMT";
             string travelInformationJourneyType = "One way";
 
-            List<Riskv1decisionsTravelInformationLegs> travelInformationLegs = new List<Riskv1decisionsTravelInformationLegs>();
+            List<Riskv1decisionsBundledTravelInformationLegs> travelInformationLegs = new List<Riskv1decisionsBundledTravelInformationLegs>();
             string travelInformationLegsOrigination1 = "SFO";
             string travelInformationLegsDestination1 = "JFK";
-            travelInformationLegs.Add(new Riskv1decisionsTravelInformationLegs(
+            travelInformationLegs.Add(new Riskv1decisionsBundledTravelInformationLegs(
                 Origination: travelInformationLegsOrigination1,
                 Destination: travelInformationLegsDestination1
            ));
 
             string travelInformationLegsOrigination2 = "JFK";
             string travelInformationLegsDestination2 = "BLR";
-            travelInformationLegs.Add(new Riskv1decisionsTravelInformationLegs(
+            travelInformationLegs.Add(new Riskv1decisionsBundledTravelInformationLegs(
                 Origination: travelInformationLegsOrigination2,
                 Destination: travelInformationLegsDestination2
            ));

@@ -20,7 +20,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
         }
 
 
-        public static async System.Threading.Tasks.Task<InlineResponse2016> RunAsync()
+        public static async System.Threading.Tasks.Task<BoardingRegistrationCreateResponse> RunAsync()
         {
 
 
@@ -73,9 +73,9 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             PaymentsProductsCardProcessingSubscriptionInformation subscriptionInformation = new PaymentsProductsCardProcessingSubscriptionInformation();
 
             subscriptionInformation.Enabled = true;
-            var features = new Dictionary<string, PaymentsProductsCardProcessingSubscriptionInformationFeatures>();
+            var features = new Dictionary<string, CardProessingFeatureSubscriptionItem>();
 
-            PaymentsProductsCardProcessingSubscriptionInformationFeatures obj1 = new PaymentsProductsCardProcessingSubscriptionInformationFeatures
+            CardProessingFeatureSubscriptionItem obj1 = new CardProessingFeatureSubscriptionItem
             {
                 Enabled = true
             };
@@ -112,8 +112,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             CardProcessingConfigCommonAcquirer acquirer = new CardProcessingConfigCommonAcquirer();
 
             obj2.Acquirer = acquirer;
-            var currencies = new Dictionary<string, CardProcessingConfigCommonCurrencies1>();
-            CardProcessingConfigCommonCurrencies1 obj3 = new CardProcessingConfigCommonCurrencies1
+            var currencies = new Dictionary<string, CurrencyUpdatedConfiguration>();
+            CurrencyUpdatedConfiguration obj3 = new CurrencyUpdatedConfiguration
             {
                 Enabled = true,
                 EnabledCardPresent = true,
@@ -234,7 +234,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new MerchantBoardingApi(clientConfig);
-                InlineResponse2016 result = await apiInstance.PostRegistrationAsync(reqObj);
+                BoardingRegistrationCreateResponse result = await apiInstance.PostRegistrationAsync(reqObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

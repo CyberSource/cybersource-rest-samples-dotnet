@@ -20,9 +20,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.UnifiedCheckout
 
         public static async System.Threading.Tasks.Task<String> RunAsync()
         {
-
-            string clientVersion = "0.23";
-
             List<string> targetOrigins = new List<string>();
             targetOrigins.Add("https://yourCheckoutPage.com");
 
@@ -182,7 +179,6 @@ namespace Cybersource_rest_samples_dotnet.Samples.UnifiedCheckout
             );
 
             var requestObj = new GenerateUnifiedCheckoutCaptureContextRequest(
-                ClientVersion: clientVersion,
                 TargetOrigins: targetOrigins,
                 AllowedCardNetworks: allowedCardNetworks,
                 AllowedPaymentTypes: allowedPaymentTypes,

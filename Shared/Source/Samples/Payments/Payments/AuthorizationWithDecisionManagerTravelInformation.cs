@@ -70,7 +70,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 BillTo: orderInformationBillTo
            );
 
-            Ptsv2paymentsTravelInformation travelInformation = new Ptsv2paymentsTravelInformation(
+            Ptsv2paymentsTravelInformationExtended travelInformation = new Ptsv2paymentsTravelInformationExtended(
            );
 
             var requestObj = new CreatePaymentRequest(

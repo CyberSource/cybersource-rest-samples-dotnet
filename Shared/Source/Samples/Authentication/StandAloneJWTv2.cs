@@ -297,7 +297,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Authentication
                 // Generate JWT v2 payload with all required claims
                 var jwtPayload = GetJWTv2PayloadClaimSet(request, method, resourcePath);
 
-                Console.WriteLine("\tJWT v2 BODY : " + jwtPayload.ToString(Newtonsoft.Json.Formatting.None));
+                Console.WriteLine("\tJWT v2 PostBatchRequest : " + jwtPayload.ToString(Newtonsoft.Json.Formatting.None));
 
                 var filename = "testrest.p12"; // This is the full filename of the PKCS12 file.
                 var filePath = "../../../../Shared/Source/Resource"; // This is the relative path to the directory containing the PKCS12 file from the current sample code file.

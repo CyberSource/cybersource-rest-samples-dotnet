@@ -21,7 +21,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             Console.WriteLine($"[Sample Code Testing] [{filename}] {status}");
         }
 
-        public static async System.Threading.Tasks.Task<InlineResponse2016> RunAsync()
+        public static async System.Threading.Tasks.Task<BoardingRegistrationCreateResponse> RunAsync()
         {
 
             PostRegistrationBody reqObj = new PostRegistrationBody();
@@ -100,13 +100,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
             PaymentsProductsCardProcessing cardProcessing = new PaymentsProductsCardProcessing();
             PaymentsProductsCardProcessingSubscriptionInformation subscriptionInformation2 = new PaymentsProductsCardProcessingSubscriptionInformation
             {
-            Enabled = true,
-            Features = new Dictionary<string, PaymentsProductsCardProcessingSubscriptionInformationFeatures>
-            {
-            { 
-            "cardNotPresent", new PaymentsProductsCardProcessingSubscriptionInformationFeatures 
-            { Enabled = true } }
-            }
+                Enabled = true,
+                Features = new Dictionary<string, CardProessingFeatureSubscriptionItem>
+                {
+                    { 
+                        "cardNotPresent", new CardProessingFeatureSubscriptionItem { Enabled = true } 
+                    }
+                }
             };
 
             cardProcessing.SubscriptionInformation = subscriptionInformation2;
@@ -213,7 +213,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.MerchantBoarding
                 var clientConfig = new CyberSource.Client.Configuration(merchConfigDictObj: configDictionary);
 
                 var apiInstance = new MerchantBoardingApi(clientConfig);
-                InlineResponse2016 result = await apiInstance.PostRegistrationAsync(reqObj);
+                BoardingRegistrationCreateResponse result = await apiInstance.PostRegistrationAsync(reqObj);
                 Console.WriteLine(result);
                 WriteLogAudit(apiInstance.GetStatusCode());
                 return result;

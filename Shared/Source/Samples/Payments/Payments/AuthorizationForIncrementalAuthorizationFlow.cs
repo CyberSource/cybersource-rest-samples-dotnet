@@ -234,7 +234,7 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments
                 InternetAccessCost: travelInformationLodgingInternetAccessCost
            );
 
-            Ptsv2paymentsTravelInformation travelInformation = new Ptsv2paymentsTravelInformation(
+            Ptsv2paymentsTravelInformationExtended travelInformation = new Ptsv2paymentsTravelInformationExtended(
                 Duration: travelInformationDuration,
                 Lodging: travelInformationLodging
            );
